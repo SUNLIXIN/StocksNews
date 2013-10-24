@@ -125,7 +125,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				<a href="/">Stocks News</a>
 			</footer>
 		</div>
-    <script src="https://code.jquery.com/jquery.js"></script>
+    <script src="js/jquery.js"></script>
     <script src="js/bootstrap.min.js"></script>
   </body>
 </html>

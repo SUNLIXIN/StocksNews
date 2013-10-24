@@ -10,7 +10,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import dao.UserDAO;
+import dao.UserInterface;
+import entity.User;
 
 public class Login extends HttpServlet {
 	public void doGet(HttpServletRequest request, HttpServletResponse response)
@@ -27,9 +28,9 @@ public class Login extends HttpServlet {
 		} else {
 			try {
 				InitialContext context = new InitialContext();
-				UserDAO userDAO =context (UserDAO)context.lookup("UserDAO/local");
+				UserInterface userDAO = (UserInterface)context.lookup("UserDAO/local");
 				User user = userDAO.queryByName(name);
-				if (!user) {
+				if (user == null) {
 					session.setAttribute("error", "User doesn't exsit!");
 					response.sendRedirect("login.jsp");
 					return;
