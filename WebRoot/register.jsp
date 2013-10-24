@@ -49,8 +49,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			    </ul>
 
 			    <ul class="nav navbar-nav navbar-right">
-			      <li><a href="<%=basePath%>user?id=<%  %>">User</a></li>
-			      <li><a href="<%=basePath%>logout">Logout</a></li>
+			      <li><a href="<%=basePath%>login">Login</a></li>
 			    </ul>
 			  </div>
 			</nav>

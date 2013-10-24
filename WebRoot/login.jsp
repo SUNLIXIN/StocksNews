@@ -1,4 +1,4 @@
-<%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
+<%@ page language="java" import="java.util.*,entity.User" pageEncoding="UTF-8"%>
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
@@ -48,10 +48,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			      <li><a href="<%=basePath%>submit">Submit</a></li>
 			    </ul>
 
-			    <ul class="nav navbar-nav navbar-right">
-			      <li><a href="<%=basePath%>user?id=<%  %>">User</a></li>
-			      <li><a href="<%=basePath%>logout">Logout</a></li>
-			    </ul>
+				  <ul class="nav navbar-nav navbar-right">
+				    <li><a href="<%=basePath%>register">Register</a></li>
+				  </ul>
 			  </div>
 			</nav>
 		</div>
