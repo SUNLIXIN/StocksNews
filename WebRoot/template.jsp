@@ -57,6 +57,34 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		</div>
 
 		<div class="container">
+			<% if (session.getAttribute("success") != null) {%>
+			  <div class="alert alert-success" alert-dismissable">
+          <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+          <%= session.getAttribute("success") %>
+        </div>
+        <% session.removeAttribute("success"); %>
+      <% } %>
+     	<% if (session.getAttribute("info") != null) {%>
+			  <div class="alert alert-info" alert-dismissable">
+          <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+          <%= session.getAttribute("info") %>
+        </div>
+        <% session.removeAttribute("info"); %>
+      <% } %>
+      <% if (session.getAttribute("warning") != null) {%>
+			  <div class="alert alert-warning" alert-dismissable">
+          <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+          <%= session.getAttribute("warning") %>
+        </div>        
+        <% session.removeAttribute("warning"); %>
+      <% } %>
+      <% if (session.getAttribute("error") != null) {%>
+			  <div class="alert alert-danger" alert-dismissable">
+          <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+          <%= session.getAttribute("error") %>
+        </div>
+        <% session.removeAttribute("error"); %>
+      <% } %>
 		</div>
 
 		<div class="container">
