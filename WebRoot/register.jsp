@@ -86,10 +86,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         <% session.removeAttribute("error"); %>
       <% } %>
 			<div class="page-header">
-				<h1>注册</h1>
+				<h1>Register</h1>
 			</div>
 		
-			<form class="form-horizontal" role="form" method="post" action="Register">
+			<form class="form-horizontal" role="form" method="post" action="register">
 			  <div class="form-group">
 			    <label for="email" class="col-sm-2 control-label">Email</label>
 			    <div class="col-sm-10">

@@ -85,6 +85,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         </div>
         <% session.removeAttribute("error"); %>
       <% } %>
+      <div class="page-header">
+				<h1>Title</h1>
+			</div>
 		</div>
 
 		<div class="container">

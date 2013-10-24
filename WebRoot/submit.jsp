@@ -85,9 +85,12 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         </div>
         <% session.removeAttribute("error"); %>
       <% } %>
-      <form class="form-horizontal" role="form" method="post" action="Login">
+      <div class="page-header">
+				<h1>Submit</h1>
+			</div>
+      <form class="form-horizontal" role="form" method="post" action="submit">
 			  <div class="form-group">
-			    <label for="title" class="col-sm-2 control-label">Email</label>
+			    <label for="title" class="col-sm-2 control-label">Title</label>
 			    <div class="col-sm-10">
 			      <input type="text" class="form-control" id="title" name="title" placeholder="Title">
 			    </div>

@@ -13,15 +13,26 @@
     <servlet-name>Register</servlet-name>
     <servlet-class>servlet.Register</servlet-class>
   </servlet>
+  <servlet>
+    <description>Submit</description>
+    <display-name>Submit</display-name>
+    <servlet-name>Submit</servlet-name>
+    <servlet-class>servlet.Submit</servlet-class>
+  </servlet>
+
 
 
   <servlet-mapping>
     <servlet-name>Login</servlet-name>
-    <url-pattern>/Login</url-pattern>
+    <url-pattern>/login</url-pattern>
   </servlet-mapping>
   <servlet-mapping>
     <servlet-name>Register</servlet-name>
-    <url-pattern>/Register</url-pattern>
+    <url-pattern>/register</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>Submit</servlet-name>
+    <url-pattern>/submit</url-pattern>
   </servlet-mapping>
   <welcome-file-list>
     <welcome-file>index.jsp</welcome-file>
