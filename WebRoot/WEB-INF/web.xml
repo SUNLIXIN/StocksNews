@@ -20,8 +20,6 @@
     <servlet-class>servlet.Submit</servlet-class>
   </servlet>
 
-
-
   <servlet-mapping>
     <servlet-name>Login</servlet-name>
     <url-pattern>/login</url-pattern>
