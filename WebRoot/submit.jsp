@@ -41,13 +41,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			
 			  <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 			    <ul class="nav navbar-nav">
-			      <li class="active"><a href="<%=basePath%>new">New</a></li>
+			      <li><a href="<%=basePath%>new">New</a></li>
 			      <% if (session.getAttribute("user") != null) { %>
 			      	<li><a href="<%=basePath%>threads?id=<%= ((User)session.getAttribute("user")).getName() %>">Threads</a></li>
 			      <% } %>
 			      <li><a href="<%=basePath%>comments">Comments</a></li>
 			      <li><a href="<%=basePath%>leaders">Leaders</a></li>
-			      <li><a href="<%=basePath%>submit">Submit</a></li>
+			      <li class="active"><a href="<%=basePath%>submit">Submit</a></li>
 			    </ul>
 
 					<% if (session.getAttribute("user") == null) { %>
@@ -95,6 +95,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         </div>
         <% session.removeAttribute("error"); %>
       <% } %>
+      <div class="col-md-10 col-md-offset-1">
       <div class="page-header">
 				<h1>Submit</h1>
 			</div>
@@ -122,10 +123,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			  </div>
 			  <div class="form-group">
 			    <div class="col-sm-offset-2 col-sm-10">
-			      <button type="submit" class="btn btn-default">Submit</button>
+			      <button type="submit" class="btn btn-default btn-success">Submit</button>
 			    </div>
 			  </div>
 			</form>
+			</div>
 		</div>
 
 		<div class="container">
