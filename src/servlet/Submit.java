@@ -59,6 +59,12 @@ public class Submit extends HttpServlet {
 			post.setUrl(URL);
 			post.setText(text);
 			post.setPostedBy((User)session.getAttribute("user"));
+			
+			if (URL.equals("") && !text.equals(""))
+				post.setType(1);
+			else
+				post.setType(0);
+			
 			postDAO.insert(post);
 			
 			session.setAttribute("success", "Submit successfully!");

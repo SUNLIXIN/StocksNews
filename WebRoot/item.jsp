@@ -1,4 +1,4 @@
-<%@ page language="java" import="java.util.*,entity.*,javax.naming.*,dao.*" pageEncoding="UTF-8"%>
+<%@ page language="java" import="java.util.*,entity.*" pageEncoding="UTF-8"%>
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
@@ -10,7 +10,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <base href="<%=basePath%>">
     
     <meta charset="UTF-8">
-    <title>Stocks News | Index</title>
+    <title>Stocks News | </title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
@@ -20,7 +20,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			padding-top: 70px;
 		}
 		</style>
-
+		
     <!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
       <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
@@ -41,11 +41,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			
 			  <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 			    <ul class="nav navbar-nav">
-			      <li ><a href="<%=basePath%>new">New</a></li>
+			      <li class="active"><a href="<%=basePath%>new">New</a></li>
 			      <% if (session.getAttribute("user") != null) { %>
 			      	<li><a href="<%=basePath%>threads?id=<%= ((User)session.getAttribute("user")).getName() %>">Threads</a></li>
 			      <% } %>
-			      <li><a href="<%=basePath%>newcomments">Comments</a></li>
+			      <li><a href="<%=basePath%>comments">Comments</a></li>
 			      <li><a href="<%=basePath%>leaders">Leaders</a></li>
 			      <li><a href="<%=basePath%>submit">Submit</a></li>
 			    </ul>
@@ -95,24 +95,18 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         </div>
         <% session.removeAttribute("error"); %>
       <% } %>
-      <ol>
-				<% InitialContext context = new InitialContext(); %>
-				<% PostInterface postDAO = (PostInterface) context.lookup("PostDAO/local"); %>
-				<% List<Post> posts = postDAO.queryAll(); %>
-				<% for (Post post : posts) { %>
-					<% if (post.getType() == 0) { %>
-						<li><a href="<%= post.getUrl() %>" target="_blank"><%= post.getTitle() %></a></li>
-					<% } else { %>
-						<li><a href="<%=basePath%>item?id=<%= post.getId() %>" target="_blank"><%= post.getTitle() %></a></li>
-					<% } %>
-				<% } %>
-			</ol>
+      <div class="page-header">
+				<h1>Post</h1>
+			</div>
+			<% Post post = (Post) session.getAttribute("postShowed"); %>
+			<%= post.getTitle() %>
+			<%= post.getText() %>
 		</div>
 
 		<div class="container">
 			<footer>
 				<hr>
-				<a href="<%=basePath%>">Stocks News</a>
+				<a href="/">Stocks News</a>
 			</footer>
 		</div>
     <script src="js/jquery.js"></script>

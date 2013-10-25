@@ -49,9 +49,18 @@
     <servlet-name>Submitted</servlet-name>
     <servlet-class>servlet.Submitted</servlet-class>
   </servlet>
-
-
-
+  <servlet>
+    <description>Item</description>
+    <display-name>Item</display-name>
+    <servlet-name>Item</servlet-name>
+    <servlet-class>servlet.Item</servlet-class>
+  </servlet>
+  <servlet>
+    <description>Logout</description>
+    <display-name>Logout</display-name>
+    <servlet-name>Logout</servlet-name>
+    <servlet-class>servlet.Logout</servlet-class>
+  </servlet>
 
   <servlet-mapping>
     <servlet-name>Login</servlet-name>
@@ -84,6 +93,14 @@
   <servlet-mapping>
     <servlet-name>Submitted</servlet-name>
     <url-pattern>/submitted</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>Item</servlet-name>
+    <url-pattern>/item</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>Logout</servlet-name>
+    <url-pattern>/logout</url-pattern>
   </servlet-mapping>
   <welcome-file-list>
     <welcome-file>index.jsp</welcome-file>
