@@ -40,6 +40,7 @@ public class UserPage extends HttpServlet {
 				return;
 			} else {
 				session.setAttribute("isHimSelf", false);
+				session.setAttribute("userShowed", user);
 				response.sendRedirect("user.jsp");
 				return;
 			}
