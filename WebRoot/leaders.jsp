@@ -29,6 +29,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   <body>
 		<div class="container">
 			<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+			  <div class="col-md-10 col-md-offset-1">
 			  <div class="navbar-header">
 			    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
 			      <span class="sr-only">Toggle navigation</span>
@@ -36,10 +37,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			      <span class="icon-bar"></span>
 			      <span class="icon-bar"></span>
 			    </button>
-			    <a class="navbar-brand" href="<%=basePath%>">Stocks News</a>
+			    <a class="navbar-brand" href="<%=basePath%>"><strong>Stocks News</strong></a>
 			  </div>
 			
 			  <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+			    
 			    <ul class="nav navbar-nav">
 			      <li><a href="<%=basePath%>new">New</a></li>
 			      <% if (session.getAttribute("user") != null) { %>
@@ -62,6 +64,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				      <li><a href="<%=basePath%>logout">Logout</a></li>
 				    </ul>
 				  <% } %>
+			  </div>
 			  </div>
 			</nav>
 		</div>
@@ -108,10 +111,12 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		</div>
 </div>
 		<div class="container">
+		<div class="col-md-10 col-md-offset-1">
 			<footer>
 				<hr>
 				<a href="/">Stocks News</a>
 			</footer>
+			</div>
 		</div>
     <script src="js/jquery.js"></script>
     <script src="js/bootstrap.min.js"></script>
