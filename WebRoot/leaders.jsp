@@ -41,12 +41,12 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			
 			  <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 			    <ul class="nav navbar-nav">
-			      <li class="active"><a href="<%=basePath%>new">New</a></li>
+			      <li><a href="<%=basePath%>new">New</a></li>
 			      <% if (session.getAttribute("user") != null) { %>
 			      	<li><a href="<%=basePath%>threads?id=<%= ((User)session.getAttribute("user")).getName() %>">Threads</a></li>
 			      <% } %>
 			      <li><a href="<%=basePath%>comments">Comments</a></li>
-			      <li><a href="<%=basePath%>leaders">Leaders</a></li>
+			      <li class="active"><a href="<%=basePath%>leaders">Leaders</a></li>
 			      <li><a href="<%=basePath%>submit">Submit</a></li>
 			    </ul>
 
@@ -95,6 +95,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         </div>
         <% session.removeAttribute("error"); %>
       <% } %>
+      <div class="col-md-10 col-md-offset-1">
       <div class="page-header">
 				<h1>Leaders</h1>
 			</div>
@@ -105,7 +106,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				<% } %>
 			<% } %>
 		</div>
-
+</div>
 		<div class="container">
 			<footer>
 				<hr>

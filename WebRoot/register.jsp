@@ -41,7 +41,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			
 			  <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 			    <ul class="nav navbar-nav">
-			      <li class="active"><a href="<%=basePath%>new">New</a></li>
+			      <li><a href="<%=basePath%>new">New</a></li>
 			      <% if (session.getAttribute("user") != null) { %>
 			      	<li><a href="<%=basePath%>threads?id=<%= ((User)session.getAttribute("user")).getName() %>">Threads</a></li>
 			      <% } %>
@@ -86,40 +86,51 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         </div>
         <% session.removeAttribute("error"); %>
       <% } %>
-			<div class="page-header">
-				<h1>Register</h1>
-			</div>
-		
+      
+	<div class="col-md-8 col-md-offset-2">	
+				<br>
+				<h1 class="text-info"><strong>Start From Here</strong></h1>
+				<br>
+	</div>	
+	<div class="col-md-8 col-md-offset-2">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title">create your account</h3>
+      </div>
+     <div class="panel-body">		
 			<form class="form-horizontal" role="form" method="post" action="register">
 			  <div class="form-group">
-			    <label for="email" class="col-sm-2 control-label">Email</label>
-			    <div class="col-sm-10">
+			    <label for="email" class="col-sm-3 control-label">Email</label>
+			    <div class="col-sm-9">
 			      <input type="email" class="form-control" id="email" name="email" placeholder="Email">
 			    </div>
 			  </div>
 			  <div class="form-group">
-			    <label for="username" class="col-sm-2 control-label">User Name</label>
-			    <div class="col-sm-10">
+			    <label for="username" class="col-sm-3 control-label">User Name</label>
+			    <div class="col-sm-9">
 			      <input type="text" class="form-control" id="username" name="username" placeholder="User Name">
 			    </div>
 			  </div>
 			  <div class="form-group">
-			    <label for="password" class="col-sm-2 control-label">Password</label>
-			    <div class="col-sm-10">
+			    <label for="password" class="col-sm-3 control-label">Password</label>
+			    <div class="col-sm-9">
 			      <input type="password" class="form-control" id="password" name="password" placeholder="Password">
 			    </div>
 			  </div>
 			  <div class="form-group">
-			    <label for="password-repeat" class="col-sm-2 control-label">Repeat Password</label>
-			    <div class="col-sm-10">
+			    <label for="password-repeat" class="col-sm-3 control-label">Repeat Password</label>
+			    <div class="col-sm-9">
 			      <input type="password" class="form-control" id="password-repeat" name="password-repeat" placeholder="Repeat Password">
 			    </div>
 			  </div>
 			  <div class="form-group">
-			    <div class="col-sm-offset-2 col-sm-10">
-			      <button type="submit" class="btn btn-default">Register</button>
+			    <div class="col-sm-offset-3 col-sm-9">
+			      <button type="submit" class="btn btn-success btn-lg btn-block">Sign up</button>
 			    </div>
 			  </div>
+			 </div>
+			</div>
+			</div>
 			</form>
 		</div>
 
