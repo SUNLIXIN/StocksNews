@@ -102,8 +102,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			
 			<% List<User> leaders = (List<User>)session.getAttribute("leaders"); %>
 			<% if (leaders != null) { %>
-				<% for (User leader : leaders) {%>
-				<% } %>
+				<ol>
+					<% for (User leader : leaders) {%>
+						<li><a href="<%=basePath%>user?id=<%= leader.getName() %>"><%= leader.getName() %></a></li>
+					<% } %>
+				</ol>
 			<% } %>
 		</div>
 </div>
