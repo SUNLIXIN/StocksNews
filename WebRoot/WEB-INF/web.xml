@@ -19,6 +19,13 @@
     <servlet-name>Submit</servlet-name>
     <servlet-class>servlet.Submit</servlet-class>
   </servlet>
+  <servlet>
+    <description>UserPage</description>
+    <display-name>UserPage</display-name>
+    <servlet-name>UserPage</servlet-name>
+    <servlet-class>servlet.UserPage</servlet-class>
+  </servlet>
+
 
   <servlet-mapping>
     <servlet-name>Login</servlet-name>
@@ -31,6 +38,10 @@
   <servlet-mapping>
     <servlet-name>Submit</servlet-name>
     <url-pattern>/submit</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>UserPage</servlet-name>
+    <url-pattern>/user</url-pattern>
   </servlet-mapping>
   <welcome-file-list>
     <welcome-file>index.jsp</welcome-file>
