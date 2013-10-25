@@ -119,9 +119,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				    </div>
 				  </div>
 				  <div class="form-group">
-				    <label for="saved" class="col-sm-2 control-label">password</label>
+				    <label for="saved" class="col-sm-2 control-label">saved</label>
 				    <div class="col-sm-10">
-				      <a href="<%=basePath%>saved?id=<%= user.getName() %>" class="form-control" id="saved">reset password</a>
+				      <a href="<%=basePath%>saved?id=<%= user.getName() %>" class="form-control" id="saved"><%= user.getSaved().size() %></a>
 				    </div>
 				  </div>
 				  <div class="form-group">
