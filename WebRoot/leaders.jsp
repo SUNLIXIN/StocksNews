@@ -58,7 +58,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				  <% } else { %>
 				  	<% User user = (User)session.getAttribute("user"); %>
 				  	<ul class="nav navbar-nav navbar-right">
-				      <li><a href="<%=basePath%>user?id=<%= user.getId() %>"><%= user.getName() %></a></li>
+				      <li><a href="<%=basePath%>user?id=<%= user.getName() %>"><%= user.getName() %></a></li>
 				      <li><a href="<%=basePath%>logout">Logout</a></li>
 				    </ul>
 				  <% } %>
