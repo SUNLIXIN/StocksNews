@@ -61,10 +61,10 @@ public class Register extends HttpServlet {
 			user.setName(username);
 			user.setEmail(email);
 			user.setPassword(password);
-			user.setCreatedTime(new Date(new java.util.Date().getTime()));
+//			user.setCreatedTime(new Date(new java.util.Date().getTime()));
 			userDAO.insert(user);
 			session.setAttribute("success", "Register successfully!");
-			response.sendRedirect("index.jsp");
+			response.sendRedirect("login.jsp");
 			return;
 		} catch (NamingException e) {
 			e.printStackTrace();
