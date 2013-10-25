@@ -31,6 +31,27 @@
     <servlet-name>Leaders</servlet-name>
     <servlet-class>servlet.Leaders</servlet-class>
   </servlet>
+  <servlet>
+    <description>Threads</description>
+    <display-name>Threads</display-name>
+    <servlet-name>Threads</servlet-name>
+    <servlet-class>servlet.Threads</servlet-class>
+  </servlet>
+  <servlet>
+    <description>NewComments</description>
+    <display-name>NewComments</display-name>
+    <servlet-name>NewComments</servlet-name>
+    <servlet-class>servlet.NewComments</servlet-class>
+  </servlet>
+  <servlet>
+    <description>Submitted</description>
+    <display-name>Submitted</display-name>
+    <servlet-name>Submitted</servlet-name>
+    <servlet-class>servlet.Submitted</servlet-class>
+  </servlet>
+
+
+
 
   <servlet-mapping>
     <servlet-name>Login</servlet-name>
@@ -51,6 +72,18 @@
   <servlet-mapping>
     <servlet-name>Leaders</servlet-name>
     <url-pattern>/leaders</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>Threads</servlet-name>
+    <url-pattern>/threads</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>NewComments</servlet-name>
+    <url-pattern>/newcomments</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>Submitted</servlet-name>
+    <url-pattern>/submitted</url-pattern>
   </servlet-mapping>
   <welcome-file-list>
     <welcome-file>index.jsp</welcome-file>

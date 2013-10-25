@@ -10,7 +10,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <base href="<%=basePath%>">
     
     <meta charset="UTF-8">
-    <title>Stocks News | Register</title>
+    <title>Stocks News | Threads</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
@@ -50,9 +50,18 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			      <li><a href="<%=basePath%>submit">Submit</a></li>
 			    </ul>
 
-			    <ul class="nav navbar-nav navbar-right">
-			      <li><a href="<%=basePath%>login">Login</a></li>
-			    </ul>
+					<% if (session.getAttribute("user") == null) { %>
+				    <ul class="nav navbar-nav navbar-right">
+				      <li><a href="<%=basePath%>login">Login</a></li>
+				      <li><a href="<%=basePath%>register">Register</a></li>
+				    </ul>
+				  <% } else { %>
+				  	<% User user = (User)session.getAttribute("user"); %>
+				  	<ul class="nav navbar-nav navbar-right">
+				      <li><a href="<%=basePath%>user?id=<%= user.getId() %>"><%= user.getName() %></a></li>
+				      <li><a href="<%=basePath%>logout">Logout</a></li>
+				    </ul>
+				  <% } %>
 			  </div>
 			</nav>
 		</div>
@@ -86,41 +95,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         </div>
         <% session.removeAttribute("error"); %>
       <% } %>
-			<div class="page-header">
-				<h1>Register</h1>
+      <div class="page-header">
+				<h1>Under Construction</h1>
 			</div>
-		
-			<form class="form-horizontal" role="form" method="post" action="register">
-			  <div class="form-group">
-			    <label for="email" class="col-sm-2 control-label">Email</label>
-			    <div class="col-sm-10">
-			      <input type="email" class="form-control" id="email" name="email" placeholder="Email">
-			    </div>
-			  </div>
-			  <div class="form-group">
-			    <label for="username" class="col-sm-2 control-label">User Name</label>
-			    <div class="col-sm-10">
-			      <input type="text" class="form-control" id="username" name="username" placeholder="User Name">
-			    </div>
-			  </div>
-			  <div class="form-group">
-			    <label for="password" class="col-sm-2 control-label">Password</label>
-			    <div class="col-sm-10">
-			      <input type="password" class="form-control" id="password" name="password" placeholder="Password">
-			    </div>
-			  </div>
-			  <div class="form-group">
-			    <label for="password-repeat" class="col-sm-2 control-label">Repeat Password</label>
-			    <div class="col-sm-10">
-			      <input type="password" class="form-control" id="password-repeat" name="password-repeat" placeholder="Repeat Password">
-			    </div>
-			  </div>
-			  <div class="form-group">
-			    <div class="col-sm-offset-2 col-sm-10">
-			      <button type="submit" class="btn btn-default">Register</button>
-			    </div>
-			  </div>
-			</form>
 		</div>
 
 		<div class="container">
