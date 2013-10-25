@@ -37,7 +37,7 @@ public class Register extends HttpServlet {
 			return;
 		}
 		if (!passwordTemp.equals(passwordRepeatTemp)) {
-			session.setAttribute("error", "Password and Repeat Passwordare different!");
+			session.setAttribute("error", "Password and Repeat Password are different!");
 			response.sendRedirect("register.jsp");
 			return;
 		}
