@@ -123,7 +123,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				  <div class="form-group">
 				    <label for="saved" class="col-sm-2 control-label">saved</label>
 				    <div class="col-sm-10">
-				      <a href="<%=basePath%>saved?id=<%= user.getName() %>" class="form-control" id="saved"><%= user.getSaved().size() %></a>
+				      <a href="<%=basePath%>saved?id=<%= user.getName() %>" class="form-control" id="saved">
+				      	<% if (user.getSaved() == null) { %>
+				      		0
+				      	<% } else { %>
+				      		user.getSaved().size();
+				      	<% } %>
+				      </a>
 				    </div>
 				  </div>
 				  <div class="form-group">
@@ -135,13 +141,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				  <div class="form-group">
 				    <label for="about" class="col-sm-2 control-label">about</label>
 				    <div class="col-sm-10">
-				      <textarea class="form-control" id="about" name="about">
-				      	<% if (user.getAbout() == null) { %>
-				      		About
-				      	<% } else { %>
-				      		<%= user.getAbout() %>
-				      	<% } %>
-				      </textarea>
+				      <textarea class="form-control" id="about" name="about" placeholder="About"><% if(user.getAbout()!=null){out.print(user.getAbout());}%></textarea>
 				    </div>
 				  </div>
 				  <div class="form-group">
