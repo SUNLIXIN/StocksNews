@@ -31,7 +31,7 @@ public class Register extends HttpServlet {
 		
 		HttpSession session = request.getSession();
 		
-		if (email.equals("") || username.equals("") || password.equals("")) {
+		if (email.equals("") || username.equals("") || passwordTemp.equals("")) {
 			session.setAttribute("error", "All blanks should be filled!");
 			response.sendRedirect("register.jsp");
 			return;

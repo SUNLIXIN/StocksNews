@@ -25,7 +25,7 @@ public class Login extends HttpServlet {
 		String name = request.getParameter("name");
 		String passwordTemp = request.getParameter("password");
 		String password = Encrypt.generatePassword(passwordTemp);
-		
+
 		HttpSession session = request.getSession();
 		
 		if (name.equals("") || passwordTemp.equals("")) {
@@ -42,7 +42,7 @@ public class Login extends HttpServlet {
 					response.sendRedirect("login.jsp");
 					return;
 				} else {
-					if (password != user.getPassword()) {
+					if (!password.equals(user.getPassword())) {
 						session.setAttribute("error", "Password Wrong!");
 						response.sendRedirect("login.jsp");
 						return;
