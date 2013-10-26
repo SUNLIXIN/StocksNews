@@ -29,6 +29,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   <body>
 		<div class="container">
 			<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+			  <div class="col-md-10 col-md-offset-1">
 			  <div class="navbar-header">
 			    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
 			      <span class="sr-only">Toggle navigation</span>
@@ -62,6 +63,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				      <li><a href="<%=basePath%>logout">Logout</a></li>
 				    </ul>
 				  <% } %>
+			  </div>
 			  </div>
 			</nav>
 		</div>

@@ -29,6 +29,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   <body>
 		<div class="container">
 			<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+			  <div class="col-md-10 col-md-offset-1">
 			  <div class="navbar-header">
 			    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
 			      <span class="sr-only">Toggle navigation</span>
@@ -36,12 +37,12 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			      <span class="icon-bar"></span>
 			      <span class="icon-bar"></span>
 			    </button>
-			    <a class="navbar-brand" href="<%=basePath%>">Stocks News</a>
+			    <a class="navbar-brand" href="<%=basePath%>"><strong>Stocks News</strong></a>
 			  </div>
 			
 			  <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 			    <ul class="nav navbar-nav">
-			      <li class="active"><a href="<%=basePath%>new">New</a></li>
+			      <li><a href="<%=basePath%>new">New</a></li>
 			      <% if (session.getAttribute("user") != null) { %>
 			      	<li><a href="<%=basePath%>threads?id=<%= ((User)session.getAttribute("user")).getName() %>">Threads</a></li>
 			      <% } %>
@@ -58,10 +59,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				  <% } else { %>
 				  	<% User user = (User)session.getAttribute("user"); %>
 				  	<ul class="nav navbar-nav navbar-right">
-				      <li><a href="<%=basePath%>user?id=<%= user.getName() %>"><%= user.getName() %></a></li>
+				      <li class="active"><a href="<%=basePath%>user?id=<%= user.getName() %>"><%= user.getName() %></a></li>
 				      <li><a href="<%=basePath%>logout">Logout</a></li>
 				    </ul>
 				  <% } %>
+			  </div>
 			  </div>
 			</nav>
 		</div>
@@ -95,8 +97,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         </div>
         <% session.removeAttribute("error"); %>
       <% } %>
+      <div class= "col-md-10 col-md-offset-1">
       <div class="page-header">
-				<h1>User</h1>
+				<h1 class="text-info"><strong>User Information</strong></h1>
 			</div>
 			
 			<% if (session.getAttribute("isHimSelf") != null && (Boolean)session.getAttribute("isHimSelf")) { %>
@@ -182,7 +185,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				  </div>
 				  <div class="form-group">
 				    <div class="col-sm-offset-2 col-sm-10">
-				      <button type="submit" class="btn btn-default">Update</button>
+				      <button type="submit" class="btn btn-primary btn-lg">Update</button>
 				    </div>
 				  </div>
 				</form>
@@ -195,14 +198,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				<a href="<%=basePath%>submitted?id=<%= user.getId() %>">submissions</a>
 				<a href="<%=basePath%>threads?id=<%= user.getId() %>">comments</a>
 			<% } %>
-		</div>
-
-		<div class="container">
 			<footer>
 				<hr>
 				<a href="/">Stocks News</a>
 			</footer>
+			</div>
 		</div>
+
     <script src="js/jquery.js"></script>
     <script src="js/bootstrap.min.js"></script>
   </body>
