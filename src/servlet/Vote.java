@@ -10,40 +10,31 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import dao.PostInterface;
 import dao.UserInterface;
+import entity.Post;
 import entity.User;
 
-public class UserPage extends HttpServlet {
+public class Vote extends HttpServlet {
 	public void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		String username = request.getParameter("id");
+		int postid = Integer.parseInt(request.getParameter("for"));
+		String direction = request.getParameter("dir");
+		String username = request.getParameter("by");
+		String auth = request.getParameter("auth");
+		String whence = request.getParameter("whence");
 		
 		HttpSession session = request.getSession();
 		
 		try {
 			InitialContext context = new InitialContext();
-			UserInterface userDAO = (UserInterface)context.lookup("UserDAO/local");
+			PostInterface postDAO = (PostInterface) context.lookup("PostDAO/local");
+			Post post = postDAO.queryById(postid);
+			UserInterface userDAO = (UserInterface) context.lookup("UserDAO/local");
 			User user = userDAO.queryByName(username);
-			if (user == null) {
-				session.setAttribute("error", "No such user!");
-				response.sendRedirect("index.jsp");
-				return;
-			}
-			if (session.getAttribute("user") == null) {
-				session.setAttribute("isHimSelf", false);
-				session.setAttribute("userShowed", user);
-				response.sendRedirect("user.jsp");
-				return;
-			} else if (((User)session.getAttribute("user")).getName().equals(user.getName())) {
-				session.setAttribute("isHimSelf", true);
-				response.sendRedirect("user.jsp");
-				return;
-			} else {
-				session.setAttribute("isHimSelf", false);
-				session.setAttribute("userShowed", user);
-				response.sendRedirect("user.jsp");
-				return;
-			}
+			postDAO.savePostByUser(post, user);
+			response.sendRedirect("index.jsp");
+			return;
 		} catch (NamingException e) {
 			e.printStackTrace();
 		}
